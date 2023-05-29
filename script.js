@@ -9,7 +9,10 @@ for(let i=0; i<element.length; i++){
 		// -----
 		if(event.key === "Backspace"){
 			let prevElement = currentElement.previousElementSibling;
-			prevElement.focus();
+			if(prevElement){
+				prevElement.focus();
+			}
+			return;
 		}
 			let code = event.key.charCodeAt(0);
 		if(code>= 48 && code <=57){
