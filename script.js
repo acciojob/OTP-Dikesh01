@@ -4,7 +4,13 @@ let element = document.getElementsByClassName("code");
 
 for(let i=0; i<element.length; i++){
 	element[i].addEventListener("keyup", (event) =>{
+		
 		let currentElement = event.target
+		// -----
+		if(event.key === "Backspace"){
+			let prevElement = currentElement.previousElementSibling;
+			prevElement.focus();
+		}
 			let code = event.key.charCodeAt(0);
 		if(code>= 48 && code <=57){
 			let nextElemet = currentElement.nextElementSibling;
@@ -12,6 +18,9 @@ for(let i=0; i<element.length; i++){
 				nextElemet.focus();
 			}
 			
+		}
+		else{
+			event.target.value="";
 		}
 	})
 }
